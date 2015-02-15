@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 describe 'ユーザーがログインをする' do
-  context 'トップページに遷移し"twitterでログイン"をクリックした時' do
-    context 'かつtwitterでのログインが成功した時' do
+
+  shared_examples 'クリックしたとき' do
+    context 'かつtwitterでのログインが成功したとき' do
       before do
         visit root_path
-        click_link 'ログイン'
+        click_link twitter_link
       end
 
       it 'トップページ遷移していること' do
@@ -35,5 +36,16 @@ describe 'ユーザーがログインをする' do
         expect(page).to have_content 'ログインに失敗しました'
       end
     end
+
+  end
+
+  context 'トップページに遷移しヘッダーの"ログイン"' do
+    let(:twitter_link) { 'ログイン' }
+    it_behaves_like 'クリックしたとき'
+  end
+
+  context 'トップページに遷移しbodyの"Twitterでログイン"' do
+    let(:twitter_link) { 'Twitterでログイン' }
+    it_behaves_like 'クリックしたとき'
   end
 end

@@ -3,3 +3,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
            Rails.application.secrets.twitter_api_key,
            Rails.application.secrets.twitter_api_secret
 end
+
+OmniAuth.config.logger = Rails.logger
