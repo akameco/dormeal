@@ -9,4 +9,7 @@ header.navbar.navbar-default role="navigation"
       = link_to 'ドーミール', root_path, class: 'navbar-brand'
     .collapse.navbar-collapse id="bs-example-navbar-collapse-1"
       ul.nav.navbar-nav.navbar-right
-        li = link_to 'ログイン', '/auth/twitter'
+        - if logged_in?
+          li = link_to 'ログアウト', logout_path
+        - else
+          li = link_to 'ログイン', '/auth/twitter'

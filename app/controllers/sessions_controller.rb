@@ -5,6 +5,11 @@ class SessionsController < ApplicationController
     redirect_to root_path, notice: 'ログインしました'
   end
 
+  def destroy
+    reset_session
+    redirect_to root_path, notice: 'ログアウトしました'
+  end
+
   def failure
     redirect_to root_path, notice: 'ログインに失敗しました'
   end
