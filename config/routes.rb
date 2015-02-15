@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'sessions/create'
+
   root 'welcome#index'
 
   # Example of regular route:

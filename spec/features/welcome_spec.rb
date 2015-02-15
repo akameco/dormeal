@@ -6,8 +6,7 @@ describe 'トップページ' do
     subject { page }
 
     it { is_expected.to have_title('ドーミール - 今日の献立') }
-    it { is_expected.to have_content('ドーミールにようこそ') }
-
+    it { is_expected.to have_content('ドーミールへようこそ') }
 
     context 'ヘッター' do
       it { is_expected.to have_content('ドーミール') }
