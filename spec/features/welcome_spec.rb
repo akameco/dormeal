@@ -2,11 +2,20 @@ require 'rails_helper'
 
 describe 'トップページ' do
   context 'ルートに遷移したとき' do
-    before do
-      visit root_path
+    before { visit root_path }
+    subject { page }
+
+    it { is_expected.to have_title('ドーミール - 今日の献立') }
+    it { is_expected.to have_content('ドーミールにようこそ') }
+
+
+    context 'ヘッター' do
+      it { is_expected.to have_content('ドーミール') }
+      it { is_expected.to have_link('Twitterでログイン') }
     end
-    it '寮飯にようこそと表示されること' do
-      expect(page).to have_content('寮飯にようこそ')
+
+    context 'フッター' do
+      it { is_expected.to have_content('2014 © akameco') }
     end
   end
 end
