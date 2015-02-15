@@ -5,15 +5,15 @@ describe 'ユーザーがログインをする' do
     context 'かつtwitterでのログインが成功した時' do
       before do
         visit root_path
-        click_link 'Twitterでログイン'
+        click_link 'ログイン'
       end
 
       it 'トップページ遷移していること' do
         expect(page.current_path).to eq root_path
       end
 
-      it 'ログインが成功しましたと表示されること' do
-        expect(page).to have_content('ログインに成功しました')
+      it 'ログインしましたと表示されること' do
+        expect(page).to have_content('ログインしました')
       end
     end
 
@@ -22,7 +22,7 @@ describe 'ユーザーがログインをする' do
         original_mock_auth                  = OmniAuth.config.mock_auth[:twitter]
         OmniAuth.config.mock_auth[:twitter] = :invalid_credentials
         visit root_path
-        click_link 'Twitterでログイン'
+        click_link 'ログイン'
         example.run
         OmniAuth.config.mock_auth[:twitter] = original_mock_auth
       end

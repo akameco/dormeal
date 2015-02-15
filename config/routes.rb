@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'sessions/create'
 
   root 'welcome#index'
+  get '/auth/:provider/callback' => 'sessions#create'
+  get '/auth/failure' => 'sessions#failure'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
