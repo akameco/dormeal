@@ -11,17 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150215024855) do
+ActiveRecord::Schema.define(version: 20150216044204) do
 
-  create_table "users", force: :cascade do |t|
-    t.string   "provider",   null: false
-    t.string   "uid",        null: false
-    t.string   "nickname",   null: false
-    t.string   "image_url",  null: false
+  create_table "dormitories", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "menu_type",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "dormitories", ["name"], name: "index_dormitories_on_name", unique: true
+
+  create_table "users", force: :cascade do |t|
+    t.string   "provider",     null: false
+    t.string   "uid",          null: false
+    t.string   "nickname",     null: false
+    t.string   "image_url",    null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "dormitory_id"
+  end
+
+  add_index "users", ["dormitory_id"], name: "index_users_on_dormitory_id"
   add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
 
 end
