@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  it { is_expected.to belong_to(:dormitory).class_name('Dormitory') }
+
   describe '.find_or_create_from_auth_hash' do
     let(:auth_hash) do
       {

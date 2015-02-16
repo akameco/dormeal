@@ -19,6 +19,7 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'ransack'
 gem 'seed-fu'
+gem 'mechanize'
 
 group :development, :test do
   gem 'byebug'
