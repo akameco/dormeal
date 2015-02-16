@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150215024855) do
+ActiveRecord::Schema.define(version: 20150215234243) do
+
+  create_table "dormitories", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "menu_type",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "dormitories", ["name"], name: "index_dormitories_on_name", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "provider",   null: false

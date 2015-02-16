@@ -18,6 +18,7 @@ gem 'omniauth-twitter'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'ransack'
+gem 'seed-fu'
 
 group :development, :test do
   gem 'byebug'
@@ -30,11 +31,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'spring-commands-rspec'
   gem 'capybara'
-end
-
-group :test do
   gem 'shoulda-matchers', require: false
 end
-
-
-
