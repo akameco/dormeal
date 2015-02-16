@@ -1,0 +1,2 @@
+class DormitoriesController < ApplicationController
+end
