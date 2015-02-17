@@ -312,6 +312,7 @@ DEPENDENCIES
   kaminari
   kaminari-bootstrap
   mechanize
+  nokogiri
   omniauth
   omniauth-twitter
   pry-rails
