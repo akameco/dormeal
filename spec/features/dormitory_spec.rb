@@ -10,7 +10,6 @@ describe 'ユーザが寮を選択する' do
     before do
       visit root_path
       click_link 'ログイン'
-      click_link '設定'
     end
 
     it '寮を設定と表示されていること' do
@@ -22,6 +21,7 @@ describe 'ユーザが寮を選択する' do
       expect(page).to have_content(dormitory_2.name)
       expect(page).to have_content(dormitory_3.name)
     end
+
 
     context 'ドーミー新松戸をクリックしたとき' do
       before do
@@ -56,9 +56,17 @@ describe 'ユーザが寮を選択する' do
         end
       end
     end
-  end
 
-  it '寮の設定がしてないとき' do
-    # expect(page).to have_content('在住の寮を設定してください')
+    context 'かつフォームで検索したとき' do
+      before do
+        fill_in '寮の名前', with: '新松戸'
+        click_button '検索'
+      end
+
+      it '条件に合う寮名のみ表示されていること' do
+        expect(page).to have_content '新松戸'
+        expect(page).not_to have_content 'ミネルヴァ'
+      end
+    end
   end
 end
