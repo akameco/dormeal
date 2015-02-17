@@ -25,5 +25,14 @@ RSpec.describe User, type: :model do
         expect(user).to be_persisted
       end
     end
+
+    context '寮のidが追加されたとき' do
+      it 'ユーザに設定したDormitoryが一致' do
+        user           = User.find_or_create_from_auth_hash(auth_hash)
+        dormitory      = Dormitory.find(1)
+        user.dormitory = dormitory
+        expect(user.dormitory).to eq dormitory
+      end
+    end
   end
 end

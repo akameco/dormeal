@@ -33,4 +33,5 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'capybara'
   gem 'shoulda-matchers', require: false
+  gem 'guard-rspec', require: false
 end

@@ -1,0 +1,6 @@
+.page-header
+  h1 = @dormitory.name
+.col-md-4
+  = link_to 'この寮に設定する', dormitory_path(params[:id]), :method => :put, class: 'btn btn-lg btn-block btn-primary'
+.col-md-4
+  = link_to '選択へ戻る', dormitory_index_path, class: 'btn btn-lg btn-block btn-warning'
