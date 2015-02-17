@@ -1,6 +1,13 @@
 .page-header
   h1 寮を設定
 
+= search_form_for(@q, url: dormitory_index_path, class: 'well') do |f|
+  .form-group
+    = f.label :name_cont, '寮の名前'
+    = f.text_field :name_cont, class: 'form-control'
+  = f.submit '検索', class: 'btn btn-default'
+
+
 .list-group
   - @dormitories.each do |dormitory|
     = link_to(dormitory.name, edit_dormitory_path(dormitory.id), class: 'list-group-item')

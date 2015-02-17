@@ -12,7 +12,8 @@ class DormitoriesController < ApplicationController
   end
 
   def index
-    @dormitories = Dormitory.all.order(:name)
+    @q           = Dormitory.ransack(params[:q])
+    @dormitories = @q.result(distinct: true)
   end
 
   def update
