@@ -9,12 +9,8 @@ describe 'ユーザーがログインをする' do
         click_link twitter_link
       end
 
-      it 'トップページ遷移していること' do
-        expect(page.current_path).to eq root_path
-      end
-
-      it 'ログインしましたと表示されること' do
-        expect(page).to have_content('ログインしました')
+      it '寮の設定画面に遷移していること' do
+        expect(page.current_path).to eq dormitory_index_path
       end
     end
 

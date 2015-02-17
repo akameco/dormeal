@@ -10,7 +10,6 @@ describe 'ユーザが寮を選択する' do
     before do
       visit root_path
       click_link 'ログイン'
-      click_link '設定'
     end
 
     it '寮を設定と表示されていること' do

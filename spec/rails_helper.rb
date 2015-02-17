@@ -58,7 +58,7 @@ RSpec.configure do |config|
         uid:      '12345',
         info:     {
           nickname: 'akameco',
-          image:    'http://example.com/akameco.png'
+          image:    'http://pbs.twimg.com/profile_images/514747162933334017/daMPVrzM_normal.png'
         }
       })
   end
