@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   private
 
+  # セッションにデータがある場合現在のユーザを返す
   def current_user
     return unless session[:user_id]
     @current_user ||= User.find(session[:user_id])

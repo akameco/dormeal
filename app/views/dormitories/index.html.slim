@@ -1,0 +1,6 @@
+.page-header
+  h1 寮を設定
+
+.list-group
+  - @dormitories.each do |dormitory|
+    = link_to(dormitory.name, edit_dormitory_path(dormitory.id), class: 'list-group-item')
