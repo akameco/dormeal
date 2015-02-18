@@ -13,3 +13,14 @@ def sign_in
   click_link 'ログイン'
 end
 
+def login_dormitory_a1
+  sign_in
+  click_link 'ドーミー新松戸'
+  click_link 'この寮に設定する'
+end
+
+def login_dormitory_b2
+  sign_in
+  click_link 'Flora（フローラ）'
+  click_link 'この寮に設定する'
+end

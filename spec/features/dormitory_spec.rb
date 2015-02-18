@@ -4,6 +4,7 @@ describe 'ユーザが寮を選択する' do
   let!(:dormitory_1) { Dormitory.find(1) }
   let!(:dormitory_2) { Dormitory.find(2) }
   let!(:dormitory_3) { Dormitory.find(3) }
+  # let!(:today_menu) { create(:menu) }
 
   context 'ログインユーザがアクセスしたとき' do
     let!(:user) { OmniAuth.config.mock_auth[:twitter] }
@@ -44,7 +45,7 @@ describe 'ユーザが寮を選択する' do
           click_link 'この寮に設定する'
         end
 
-        it 'トップページにドーミー新松戸の名前があること' do
+        it 'ヘッダーにドーミー新松戸の名前があること' do
           expect(page).to have_content 'ドーミー新松戸'
         end
       end

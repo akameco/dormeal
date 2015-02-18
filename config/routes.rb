@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   scope :settings do
     # noinspection RailsParamDefResolve
-    resources :dormitory, controller: :dormitories, except: :destory
+    resources :dormitory, controller: :dormitories, only: [:edit,:index,:update]
   end
 
 
