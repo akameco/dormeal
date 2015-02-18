@@ -62,4 +62,7 @@ RSpec.configure do |config|
         }
       })
   end
+  config.before(:suite) do
+    SeedFu.seed
+  end
 end

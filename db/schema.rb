@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150216044204) do
+ActiveRecord::Schema.define(version: 20150218000501) do
 
   create_table "dormitories", force: :cascade do |t|
     t.string   "name",       null: false
@@ -21,6 +21,33 @@ ActiveRecord::Schema.define(version: 20150216044204) do
   end
 
   add_index "dormitories", ["name"], name: "index_dormitories_on_name", unique: true
+
+  create_table "menes", force: :cascade do |t|
+    t.string   "menu_type",   null: false
+    t.string   "breakfast_j"
+    t.string   "breakfast_w"
+    t.string   "dinner"
+    t.date     "open_day",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "menes", ["menu_type"], name: "index_menes_on_menu_type"
+  add_index "menes", ["open_day"], name: "index_menes_on_open_day"
+
+  create_table "menus", force: :cascade do |t|
+    t.string   "menu_type",   null: false
+    t.string   "breakfast_j"
+    t.string   "breakfast_w"
+    t.string   "dinner"
+    t.date     "open_day"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "menus", ["menu_type", "open_day"], name: "index_menus_on_menu_type_and_open_day", unique: true
+  add_index "menus", ["menu_type"], name: "index_menus_on_menu_type"
+  add_index "menus", ["open_day"], name: "index_menus_on_open_day"
 
   create_table "users", force: :cascade do |t|
     t.string   "provider",     null: false

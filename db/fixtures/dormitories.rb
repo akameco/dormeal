@@ -23,7 +23,7 @@ regions.each do |region|
 end
 
 dormitories.uniq.each do |dormitory|
-  Dormitory.seed do |s|
+  Dormitory.seed_once(:name, :menu_type) do |s|
     s.name      = dormitory[:name]
     s.menu_type = dormitory[:pattern]
   end
