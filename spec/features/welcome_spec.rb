@@ -10,11 +10,11 @@ describe 'トップページ' do
 
     context 'かつヘッター' do
       it { is_expected.to have_content('ドーミール') }
-      it { is_expected.to have_link('Twitterでログイン') }
+      it { is_expected.to have_link('Twitterを使ってログイン') }
     end
 
     context 'かつフッター' do
-      it { is_expected.to have_content('2014 © akameco') }
+      it { is_expected.to have_content('© 2015 akameco') }
     end
 
     context 'かつログインユーザのとき' do

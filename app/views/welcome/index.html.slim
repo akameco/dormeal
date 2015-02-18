@@ -2,30 +2,18 @@
   .jumbotron
     .container
       h1 ドーミールへようこそ
-      p 毎日の献立をチェックして寮の食事をもっと楽しみに
-      a.btn.btn-primary href="/auth/twitter" role="button" Twitterでログイン
+      p
+        ' ドーミールは共立メンテナンスの
+        a href="http://www.dnet.gr.jp/" target="_blank" ドーミー(学生会館/社員寮)
+        '  に入居している人向けの個人サービスです。
+          今日の献立をすぐに確認することができます。
+          ドーミールを使って日々の食事をもっと楽しもう。
+      a.btn.btn-primary href="/auth/twitter" role="button" Twitterを使ってログイン
 - else
   .page-header
     h1 今日のメニュー
-  - if @today_menu.breakfast_j
-    .panel.panel-default
-      .panel-heading 朝食(和)
-      .panel-body = @today_menu.breakfast_j
-      .panel-heading 朝食(洋)
-      .panel-body = @today_menu.breakfast_w
-      .panel-heading 夕食
-      .panel-body = @today_menu.dinner
-  - else
-    h3 食堂はお休みです
+  = render partial: 'welcome/menupanel', locals: { menu: @today_menu }
   .page-header
     h1 明日のメニュー
-  - if @tommorow_menu.breakfast_j
-    .panel.panel-default
-      .panel-heading 朝食(和)
-      .panel-body = @tommorow_menu.breakfast_j
-      .panel-heading 朝食(洋)
-      .panel-body = @tommorow_menu.breakfast_w
-      .panel-heading 夕食
-      .panel-body = @tommorow_menu.dinner
-  - else
-    h3 食堂はお休みです
+  = render partial: 'welcome/menupanel', locals: { menu: @tommorow_menu }
+
