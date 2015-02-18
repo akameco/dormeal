@@ -1,12 +1,6 @@
-.jumbotron
-  .container
-    - unless logged_in?
+- unless logged_in?
+  .jumbotron
+    .container
       h1 ドーミールへようこそ
       p 毎日の献立をチェックして寮の食事をもっと楽しみに
       a.btn.btn-primary href="/auth/twitter" role="button" Twitterでログイン
-    - else
-      /h4 = current_user.nickname
-      /= image_tag(current_user.image_url)
-      - if current_user.dormitory
-          h1 = current_user.dormitory.name
-

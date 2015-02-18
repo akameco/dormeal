@@ -1,21 +1,17 @@
 header.navbar.navbar-default role="navigation"
   .container
     .navbar-header
-      button.navbar-toggle data-toggle="collapse" type="button" data-target="#bs-example-navbar-collapse-1"
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
       = link_to 'ドーミール', root_path, class: 'navbar-brand'
-    .collapse.navbar-collapse id="bs-example-navbar-collapse-1"
-      - if logged_in?
-        ul.nav.navbar-right
-          li.dropdown
-            = link_to '#', class: 'dropdown-toggle', 'data-toggle' => 'dropdown' do
-              = image_tag(current_user.image_url, width: 30, height: 30)
-            ul.dropdown-menu
-              li = link_to '寮の設定', dormitory_index_path
-              li = link_to 'ログアウト', logout_path
-      - else
-        ul.nav.navbar-nav.navbar-right
-          li = link_to 'ログイン', '/auth/twitter'
+    - if logged_in?
+      ul.nav.navbar-nav.navbar-right
+        - if current_user.dormitory
+          li.navbar-text = current_user.dormitory.name
+        li.dropdown
+          = link_to '#', class: 'dropdown-toggle', 'data-toggle' => 'dropdown' do
+            = image_tag(current_user.image_url, width: 30, height: 30)
+          ul.dropdown-menu
+            li = link_to '寮の設定', dormitory_index_path
+            li = link_to 'ログアウト', logout_path
+    - else
+      ul.nav.navbar-nav.navbar-right
+        li = link_to 'ログイン', '/auth/twitter'

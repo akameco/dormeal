@@ -44,7 +44,7 @@ describe 'ユーザが寮を選択する' do
           click_link 'この寮に設定する'
         end
 
-        it 'トップページにドーミー新松戸の名前があること' do
+        it 'ヘッダーにドーミー新松戸の名前があること' do
           expect(page).to have_content 'ドーミー新松戸'
         end
       end
