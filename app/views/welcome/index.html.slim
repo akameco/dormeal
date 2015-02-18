@@ -4,3 +4,28 @@
       h1 ドーミールへようこそ
       p 毎日の献立をチェックして寮の食事をもっと楽しみに
       a.btn.btn-primary href="/auth/twitter" role="button" Twitterでログイン
+- else
+  .page-header
+    h1 今日のメニュー
+  - if @today_menu.breakfast_j
+    .panel.panel-default
+      .panel-heading 朝食(和)
+      .panel-body = @today_menu.breakfast_j
+      .panel-heading 朝食(洋)
+      .panel-body = @today_menu.breakfast_w
+      .panel-heading 夕食
+      .panel-body = @today_menu.dinner
+  - else
+    h3 食堂はお休みです
+  .page-header
+    h1 明日のメニュー
+  - if @tommorow_menu.breakfast_j
+    .panel.panel-default
+      .panel-heading 朝食(和)
+      .panel-body = @tommorow_menu.breakfast_j
+      .panel-heading 朝食(洋)
+      .panel-body = @tommorow_menu.breakfast_w
+      .panel-heading 夕食
+      .panel-body = @tommorow_menu.dinner
+  - else
+    h3 食堂はお休みです

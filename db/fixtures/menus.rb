@@ -71,7 +71,7 @@ module Scraping
     # ☆を,に変更する
     def change_star_to_comma(arr)
       result = arr[2..4].map do |v|
-        v.split('★')[1..-1].join(',') unless v.blank?
+        v.gsub('★','・') unless v.blank?
       end
       [arr[0].to_i, *result]
     end
