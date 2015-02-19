@@ -1,8 +1,5 @@
 class DormitoriesController < ApplicationController
 
-  def new
-  end
-
   def show
     @dormitory = Dormitory.find(params[:id])
   end
