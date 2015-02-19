@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -22,6 +23,8 @@ gem 'seed-fu'
 gem 'mechanize'
 gem 'nokogiri'
 gem 'bootswatch-rails'
+gem 'puma'
+gem 'foreman'
 
 group :development, :test do
   gem 'byebug'
@@ -36,4 +39,9 @@ group :development, :test do
   gem 'capybara'
   gem 'shoulda-matchers', require: false
   gem 'guard-rspec', require: false
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
 end
