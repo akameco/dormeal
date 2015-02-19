@@ -41,7 +41,7 @@ describe 'ユーザーがログインをする' do
   end
 
   context 'トップページに遷移しbodyの"Twitterでログイン"' do
-    let(:twitter_link) { 'Twitterでログイン' }
+    let(:twitter_link) { 'Twitterを使ってログイン' }
     it_behaves_like 'クリックしたとき'
   end
 end

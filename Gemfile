@@ -21,6 +21,7 @@ gem 'ransack'
 gem 'seed-fu'
 gem 'mechanize'
 gem 'nokogiri'
+gem 'bootswatch-rails'
 
 group :development, :test do
   gem 'byebug'
