@@ -3,7 +3,8 @@ Rails.application.config.middleware.use OmniAuth::Builder do
            Rails.application.secrets.twitter_api_key,
            Rails.application.secrets.twitter_api_secret,
            {
-              :secure_image_url => 'true'
+             :secure_image_url => 'true',
+             :use_authorize    => 'true'
            }
 end
 
