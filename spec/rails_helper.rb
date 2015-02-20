@@ -64,7 +64,12 @@ RSpec.configure do |config|
       })
   end
 
+  # seed-fu
   config.before(:suite) do
+    seed_tables              = %w(dormitories)
+    DatabaseCleaner.strategy = :truncation, { :except => seed_tables }
+    DatabaseCleaner.clean_with(:truncation, { :except => seed_tables })
+
     SeedFu.seed('db/fixtures', /dormitories/)
     SeedFu.seed('db/fixtures/test')
   end

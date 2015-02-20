@@ -39,6 +39,7 @@ group :development, :test do
   gem 'capybara'
   gem 'shoulda-matchers', require: false
   gem 'guard-rspec', require: false
+  gem 'database_cleaner'
 end
 
 group :production do
