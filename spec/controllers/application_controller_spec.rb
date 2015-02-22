@@ -7,6 +7,18 @@ RSpec.describe ApplicationController, type: :controller do
     def require_login
       render text: 'hello!'
     end
+
+    def runtime_error
+      raise
+    end
+
+    def not_found_error
+      raise ActiveRecord::RecordNotFound
+    end
+
+    def routing_error
+      raise ActionController::RoutingError, 'routing error'
+    end
   end
 
   context '#authenticate が before_action として設定されているアクションを実行したとき' do
@@ -25,6 +37,34 @@ RSpec.describe ApplicationController, type: :controller do
         get :require_login
         expect(response).to redirect_to root_path
       end
+    end
+  end
+
+  context 'ActiveRecord::RecordNotFound を raise したとき' do
+    before do
+      routes.draw { get 'not_found_error' => 'anonymous#not_found_error' }
+    end
+    it 'error404 を表示すること' do
+      get :not_found_error
+      expect(response).to render_template('error404')
+    end
+  end
+  context 'ActionController::RoutingError を raise したとき' do
+    before do
+      routes.draw { get 'routing_error' => 'anonymous#routing_error' }
+    end
+    it 'error404 を表示すること' do
+      get :routing_error
+      expect(response).to render_template('error404')
+    end
+  end
+  context 'RuntimeErrorをraiseしたとき' do
+    before do
+      routes.draw { get 'runtime_error' => 'anonymous#runtime_error' }
+    end
+    it 'error500 を表示すること' do
+      get :runtime_error
+      expect(response).to render_template('error500')
     end
   end
 end
